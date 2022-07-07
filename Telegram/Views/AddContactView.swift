@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct AddContactView: View {
     @State private var firstName = ""
@@ -60,6 +61,13 @@ struct AddContactView: View {
                                     
                                 Text("add phone")
                                         .font(.subheadline)
+                                        .keyboardType(.numberPad)
+                                        .onReceive(Just(number)) { newValue in
+                                                        let filtered = newValue.filter { "+0123456789".contains($0) }
+                                                        if filtered != newValue {
+                                                            self.number = filtered
+                                                        }
+                                                }
                                 }
                                 .foregroundColor(.blue)
                             }

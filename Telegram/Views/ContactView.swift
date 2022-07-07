@@ -19,9 +19,13 @@ struct ContactView: View {
             VStack (alignment: .leading) {
                 Text(name)
                 Text("last seen " + lastOnline)
+                    .foregroundColor(.gray)
+                    .font(.subheadline)
+                    .fontWeight(.light)
                 Divider()
                     .background(Color(.darkGray))
             }
+            .padding(.top, 5)
             
         }
         
