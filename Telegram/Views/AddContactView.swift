@@ -10,42 +10,85 @@ import SwiftUI
 struct AddContactView: View {
     @State private var firstName = ""
     @State private var lastName = ""
+    @State private var number = ""
+    
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        VStack {
-            HStack {
-                Form {
-                    VStack (alignment: .leading) {
-                        HStack {
-                            Circle()
-                                .frame(width: 64, height: 64)
-                            VStack {
-                                TextField(text: $firstName, prompt: Text("FirstName")) {
-                                    Text("Username")
-                                }
-                                Divider()
-                                TextField(text: $lastName, prompt: Text("Last Name")) {
-                                    Text("Password")
-                                }
-                                
-                            }
-                        }
-                        
+        
+        NavigationView {
+            VStack {
+                HStack {
+                    Form {
                         VStack (alignment: .leading) {
-                            HStack  {
-                            Image(systemName: "plus.circle.fill")
-                                
-                            Text("add phone")
-                                    .font(.subheadline)
+                            HStack {
+                                Circle()
+                                    .frame(width: 64, height: 64)
+                                VStack {
+                                    TextField(text: $firstName, prompt: Text("FirstName")) {
+                                        Text("Username")
+                                    }
+                                    Divider()
+                                    TextField(text: $lastName, prompt: Text("Last Name")) {
+                                        Text("Password")
+                                    }
+                                    
+                                }
                             }
-                            .foregroundColor(.blue)
+                            .padding(.bottom, 50)
                             
-                            Divider()
-                                .offset(x: 0, y: -5)
+                            VStack (alignment: .leading, spacing: 6) {
+                                HStack  {
+                                Image(systemName: "minus.circle.fill")
+                                        .foregroundColor(.red)
+                                    
+                                Text("mobile")
+                                        .font(.subheadline)
+                                    Divider()
+                                    TextField(text: $number, prompt: Text("+")) {
+                                        Text("Number")
+                                    }
+                                }
+                                .foregroundColor(.blue)
+                                .padding(.bottom, 4)
+
+                                Divider()
+                                    .offset(x: 0, y: -5)
+                                
+                                HStack  {
+                                Image(systemName: "plus.circle.fill")
+                                    
+                                Text("add phone")
+                                        .font(.subheadline)
+                                }
+                                .foregroundColor(.blue)
+                            }
                         }
                     }
+                    .padding(.top)
                 }
-                .padding(.top)
+            }
+            .navigationTitle("New Contact")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Text("Cancel")
+                            .foregroundColor(.blue)
+                    }
+                }
+                ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Text("Create")
+                            .foregroundColor(
+                                ((firstName.isEmpty && lastName.isEmpty) || number.isEmpty) ? .gray : .blue
+                            )
+                    }
+                }
             }
         }
     }
