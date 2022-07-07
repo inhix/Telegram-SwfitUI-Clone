@@ -81,7 +81,7 @@ struct AddContactView: View {
                 }
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
                     Button {
-                        presentationMode.wrappedValue.dismiss()
+
                     } label: {
                         Text("Create")
                             .foregroundColor(
