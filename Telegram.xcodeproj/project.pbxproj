@@ -11,6 +11,13 @@
 		C090BBC5287748CD0067BB44 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090BBC4287748CD0067BB44 /* ContentView.swift */; };
 		C090BBC7287748CF0067BB44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C090BBC6287748CF0067BB44 /* Assets.xcassets */; };
 		C090BBCA287748CF0067BB44 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C090BBC9287748CF0067BB44 /* Preview Assets.xcassets */; };
+		C090BBD428774C660067BB44 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090BBD328774C660067BB44 /* MainTabView.swift */; };
+		C090BBD628774D370067BB44 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090BBD528774D370067BB44 /* ContactsView.swift */; };
+		C090BBDA28774DD70067BB44 /* CallsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090BBD928774DD70067BB44 /* CallsView.swift */; };
+		C090BBE028774EA00067BB44 /* ChatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090BBDF28774EA00067BB44 /* ChatsView.swift */; };
+		C090BBE228774F540067BB44 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090BBE128774F540067BB44 /* SettingsView.swift */; };
+		C090BBE4287754450067BB44 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090BBE3287754450067BB44 /* ContactView.swift */; };
+		C090BBE62877697A0067BB44 /* AddContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090BBE52877697A0067BB44 /* AddContactView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +26,13 @@
 		C090BBC4287748CD0067BB44 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C090BBC6287748CF0067BB44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C090BBC9287748CF0067BB44 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C090BBD328774C660067BB44 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		C090BBD528774D370067BB44 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
+		C090BBD928774DD70067BB44 /* CallsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallsView.swift; sourceTree = "<group>"; };
+		C090BBDF28774EA00067BB44 /* ChatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsView.swift; sourceTree = "<group>"; };
+		C090BBE128774F540067BB44 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C090BBE3287754450067BB44 /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
+		C090BBE52877697A0067BB44 /* AddContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +65,9 @@
 		C090BBC1287748CD0067BB44 /* Telegram */ = {
 			isa = PBXGroup;
 			children = (
+				C090BBD2287748EF0067BB44 /* ViewModel */,
+				C090BBD1287748EA0067BB44 /* Views */,
+				C090BBD0287748E30067BB44 /* Model */,
 				C090BBC2287748CD0067BB44 /* TelegramApp.swift */,
 				C090BBC4287748CD0067BB44 /* ContentView.swift */,
 				C090BBC6287748CF0067BB44 /* Assets.xcassets */,
@@ -65,6 +82,34 @@
 				C090BBC9287748CF0067BB44 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C090BBD0287748E30067BB44 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C090BBD1287748EA0067BB44 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C090BBD328774C660067BB44 /* MainTabView.swift */,
+				C090BBD528774D370067BB44 /* ContactsView.swift */,
+				C090BBD928774DD70067BB44 /* CallsView.swift */,
+				C090BBDF28774EA00067BB44 /* ChatsView.swift */,
+				C090BBE128774F540067BB44 /* SettingsView.swift */,
+				C090BBE3287754450067BB44 /* ContactView.swift */,
+				C090BBE52877697A0067BB44 /* AddContactView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C090BBD2287748EF0067BB44 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +182,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C090BBE228774F540067BB44 /* SettingsView.swift in Sources */,
+				C090BBE028774EA00067BB44 /* ChatsView.swift in Sources */,
 				C090BBC5287748CD0067BB44 /* ContentView.swift in Sources */,
+				C090BBE4287754450067BB44 /* ContactView.swift in Sources */,
+				C090BBDA28774DD70067BB44 /* CallsView.swift in Sources */,
 				C090BBC3287748CD0067BB44 /* TelegramApp.swift in Sources */,
+				C090BBE62877697A0067BB44 /* AddContactView.swift in Sources */,
+				C090BBD428774C660067BB44 /* MainTabView.swift in Sources */,
+				C090BBD628774D370067BB44 /* ContactsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

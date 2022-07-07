@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  CallsView.swift
 //  Telegram
 //
 //  Created by Arseniy Tkachenko on 07.07.2022.
@@ -7,14 +7,16 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct CallsView: View {
     var body: some View {
-        MainTabView()
+        NavigationView {
+            
+        }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct CallsView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        CallsView()
     }
 }
