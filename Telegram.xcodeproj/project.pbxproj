@@ -16,8 +16,9 @@
 		C090BBDA28774DD70067BB44 /* CallsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090BBD928774DD70067BB44 /* CallsView.swift */; };
 		C090BBE028774EA00067BB44 /* ChatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090BBDF28774EA00067BB44 /* ChatsView.swift */; };
 		C090BBE228774F540067BB44 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090BBE128774F540067BB44 /* SettingsView.swift */; };
-		C090BBE4287754450067BB44 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090BBE3287754450067BB44 /* ContactView.swift */; };
+		C090BBE4287754450067BB44 /* ContactRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090BBE3287754450067BB44 /* ContactRowView.swift */; };
 		C090BBE62877697A0067BB44 /* AddContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090BBE52877697A0067BB44 /* AddContactView.swift */; };
+		C090BBEA287851D80067BB44 /* ChatRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090BBE9287851D80067BB44 /* ChatRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,8 +32,9 @@
 		C090BBD928774DD70067BB44 /* CallsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallsView.swift; sourceTree = "<group>"; };
 		C090BBDF28774EA00067BB44 /* ChatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsView.swift; sourceTree = "<group>"; };
 		C090BBE128774F540067BB44 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		C090BBE3287754450067BB44 /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
+		C090BBE3287754450067BB44 /* ContactRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRowView.swift; sourceTree = "<group>"; };
 		C090BBE52877697A0067BB44 /* AddContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactView.swift; sourceTree = "<group>"; };
+		C090BBE9287851D80067BB44 /* ChatRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,12 +96,11 @@
 		C090BBD1287748EA0067BB44 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C090BBE8287851BF0067BB44 /* Chats */,
+				C090BBE72878519A0067BB44 /* Contacts */,
 				C090BBD328774C660067BB44 /* MainTabView.swift */,
-				C090BBD528774D370067BB44 /* ContactsView.swift */,
 				C090BBD928774DD70067BB44 /* CallsView.swift */,
-				C090BBDF28774EA00067BB44 /* ChatsView.swift */,
 				C090BBE128774F540067BB44 /* SettingsView.swift */,
-				C090BBE3287754450067BB44 /* ContactView.swift */,
 				C090BBE52877697A0067BB44 /* AddContactView.swift */,
 			);
 			path = Views;
@@ -110,6 +111,24 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C090BBE72878519A0067BB44 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				C090BBD528774D370067BB44 /* ContactsView.swift */,
+				C090BBE3287754450067BB44 /* ContactRowView.swift */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		C090BBE8287851BF0067BB44 /* Chats */ = {
+			isa = PBXGroup;
+			children = (
+				C090BBDF28774EA00067BB44 /* ChatsView.swift */,
+				C090BBE9287851D80067BB44 /* ChatRowView.swift */,
+			);
+			path = Chats;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,10 +204,11 @@
 				C090BBE228774F540067BB44 /* SettingsView.swift in Sources */,
 				C090BBE028774EA00067BB44 /* ChatsView.swift in Sources */,
 				C090BBC5287748CD0067BB44 /* ContentView.swift in Sources */,
-				C090BBE4287754450067BB44 /* ContactView.swift in Sources */,
+				C090BBE4287754450067BB44 /* ContactRowView.swift in Sources */,
 				C090BBDA28774DD70067BB44 /* CallsView.swift in Sources */,
 				C090BBC3287748CD0067BB44 /* TelegramApp.swift in Sources */,
 				C090BBE62877697A0067BB44 /* AddContactView.swift in Sources */,
+				C090BBEA287851D80067BB44 /* ChatRowView.swift in Sources */,
 				C090BBD428774C660067BB44 /* MainTabView.swift in Sources */,
 				C090BBD628774D370067BB44 /* ContactsView.swift in Sources */,
 			);
