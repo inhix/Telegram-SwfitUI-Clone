@@ -12,7 +12,7 @@ struct ChatsView: View {
         NavigationView {
             ScrollView {
                 ForEach(0...15, id: \.self) { contact in
-                    ChatRowView(contact: "Arsenii Tkachenko", lastMessage: "Despite making up to 13% of the population blacks commit 52% of all crimes in United States of Amurica")
+                    ChatRowView(contact: "Arsenii Tkachenko", lastMessage: "Despite making up to 13% of the population blacks commit 52% of all crimes in United States of Amurica", lastMessageSent: "13.06")
                     
                 }
             }
