@@ -1,3 +1,0 @@
-target 'MyApp' do
-  pod 'Introspect'
-  end
