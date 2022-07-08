@@ -12,8 +12,13 @@ struct ChatsView: View {
         NavigationView {
             ScrollView {
                 ForEach(0...15, id: \.self) { contact in
-                    ChatRowView(contact: "Arsenii Tkachenko", lastMessage: "Despite making up to 13% of the population blacks commit 52% of all crimes in United States of Amurica", lastMessageSent: "13.06")
-                    
+                    NavigationLink {
+                        ChatView(contact: "Arsenii Tkachenko")
+                    } label: {
+                        ChatRowView(contact: "Arsenii Tkachenko",
+                                    lastMessage: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ut semper quam. Phasellus non mauris sem. Donec sed fermentum eros. Donec pretium nec turpis a semper.",
+                                    lastMessageSent: "13.06")
+                    }
                 }
             }
             .padding(.leading)

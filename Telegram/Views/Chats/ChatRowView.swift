@@ -25,12 +25,15 @@ struct ChatRowView: View {
                     HStack {
                         VStack(alignment: .leading) {
                             Text(contact)
+                                .foregroundColor(.black)
                             
                             Text(lastMessage)
                                 .foregroundColor(.gray)
                                 .font(.subheadline)
                                 .fontWeight(.light)
                                 .lineLimit(2)
+                                .multilineTextAlignment(.leading)
+                                
                         }
                         Spacer()
                         VStack {
@@ -50,16 +53,8 @@ struct ChatRowView: View {
                     }
                     Divider()
                         .background(Color(.darkGray))
-                    
-                    
                 }
                 .padding(.top, 5)
-                
-                
-                
-                
-                
-                
             }
         }
     }
