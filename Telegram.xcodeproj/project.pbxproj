@@ -43,7 +43,6 @@
 		C090BBE9287851D80067BB44 /* ChatRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRowView.swift; sourceTree = "<group>"; };
 		C090BBEB28786B960067BB44 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		C090BBF028786C090067BB44 /* ChatBubbleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleShape.swift; sourceTree = "<group>"; };
-		C090BBF22878753F0067BB44 /* Podsfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podsfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +87,6 @@
 		C090BBC1287748CD0067BB44 /* Telegram */ = {
 			isa = PBXGroup;
 			children = (
-				C090BBF22878753F0067BB44 /* Podsfile */,
 				C090BBD2287748EF0067BB44 /* ViewModel */,
 				C090BBD1287748EA0067BB44 /* Views */,
 				C090BBD0287748E30067BB44 /* Model */,
