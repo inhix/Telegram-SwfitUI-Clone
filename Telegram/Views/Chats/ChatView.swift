@@ -12,20 +12,18 @@ struct ChatView: View {
     
     private var contact: String
     
+    @State private var messageText = ""
+    
     @Environment(\.presentationMode) var presentationMode
     @State var uiTabarController: UITabBarController?
     
     var body: some View {
-        ScrollView {
-            messages
-                .padding(.vertical)
-        }
-        .navigationTitle(contact)
-        .introspectTabBarController { (UITabBarController) in
-            UITabBarController.tabBar.isHidden = true
-            uiTabarController = UITabBarController
-        }.onDisappear{
-            uiTabarController?.tabBar.isHidden = false
+        VStack {
+            ScrollView {
+                messages
+                    .padding(.vertical)
+            }
+            messageField
         }
     }
     
@@ -48,6 +46,33 @@ struct ChatView: View {
                         .foregroundColor(Color.white)
                         .background(Color.blue)
                 }
+            }
+        }
+    }
+    
+    var messageField: some View {
+        HStack {
+            Button {
+                
+            } label: {
+                Image(systemName: "paperclip")
+                    .foregroundColor(.gray)
+                    .frame(width: 36, height: 36)
+            }
+            
+            TextField("Message", text: $messageText)
+                .padding(4)
+                .padding(.horizontal, 10)
+                .overlay(Capsule().stroke(Color.gray, lineWidth: 1))
+
+            
+            Button {
+                
+            } label: {
+                Image(systemName: "mic")
+                    .foregroundColor(.gray)
+                    .frame(width: 36, height: 36)
+
             }
         }
     }

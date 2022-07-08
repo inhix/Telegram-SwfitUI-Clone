@@ -7,57 +7,120 @@
 
 import SwiftUI
 
+enum Tabs: String {
+    case contacts
+    case calls
+    case chats
+    case settings
+    
+    var navTabTitle: String {
+        switch self {
+        case .contacts: return "Contacts"
+        case .calls: return "Calls"
+        case .chats: return "Chats"
+        case .settings: return "Settings"
+        }
+    }
+}
+
 struct MainTabView: View {
-    @State private var selectedTab = 2
-    @State private var navBarTitle = "Chats"
+    @State private var selectedTab: Tabs = .chats
+    @State private var showAddContact = false
     
     var body: some View {
+        NavigationView {
             TabView (selection: $selectedTab) {
                 ContactsView()
                     .onTapGesture {
-                        self.selectedTab = 0
-                        navBarTitle = "Contacts"
+                        self.selectedTab = .contacts
+                        
                     }
                     .tabItem {
                         Image(systemName: "person.crop.circle.fill")
                         Text("Contacts")
                     }
-                    .tag(0)
+                    .tag(Tabs.contacts)
                 
                 CallsView()
                     .onTapGesture {
-                        self.selectedTab = 1
-                        navBarTitle = "Chats"
+                        self.selectedTab = .calls
                     }
                     .tabItem {
                         Image(systemName: "phone.fill")
                         Text("Calls")
                     }
-                    .tag(1)
+                    .tag(Tabs.calls)
                 
                 ChatsView()
                     .onTapGesture {
-                        self.selectedTab = 2
-                        navBarTitle = "Chats"
+                        self.selectedTab = .chats
                     }
                     .tabItem {
                         Image(systemName: "bubble.left.and.bubble.right.fill")
                         Text("Chats")
                     }
-                    .tag(2)
+                    .tag(Tabs.chats)
                 
                 SettingsView()
                     .onTapGesture {
-                        self.selectedTab = 3
-                        navBarTitle = "Chats"
+                        self.selectedTab = .settings
                     }
                     .tabItem {
                         Image(systemName: "gear")
                         Text("Settings")
                     }
-                    .tag(3)
+                    .tag(Tabs.settings)
+            }
+            .navigationTitle(selectedTab.navTabTitle)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem (placement: ToolbarItemPlacement.navigationBarLeading) {
+                    
+                    switch selectedTab {
+                    case .contacts:
+                        Menu {
+                            Button {} label: {
+                                Text("by Last Seen")
+                            }
+                            Button {} label: {
+                                Text("by Name")
+                            }
+                        } label: {
+                            Text("Sort")
+                        }
+                    case .chats: Button {
+                        
+                    } label: {
+                        Text("Edit")
+                    }
+                    case .settings, .calls: EmptyView()
+                    }
+                    
+                    
+                }
+                ToolbarItem (placement: ToolbarItemPlacement.navigationBarTrailing) {
+                    switch selectedTab {
+                    case .contacts:
+                        Button {
+                            showAddContact = true
+                        } label: {
+                            Image(systemName: "plus")
+                        }
+                        .popover(isPresented: $showAddContact) {
+                            AddContactView()
+                        }
+                    case .chats:
+                        Button {
+                            
+                        } label: {
+                            Image(systemName: "square.and.pencil")
+                        }
+                    case .settings, .calls: EmptyView()
+                    }
+                }
             }
         }
+    }
 }
 
 struct MainTabView_Previews: PreviewProvider {

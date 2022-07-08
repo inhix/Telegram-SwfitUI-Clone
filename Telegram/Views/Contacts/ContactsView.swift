@@ -8,48 +8,18 @@
 import SwiftUI
 
 struct ContactsView: View {
-    @State private var showAddContact = false
-    
+
     var body: some View {
-        NavigationView {
-            ScrollView {
-                ForEach(0...15, id: \.self) { contact in
-                    ContactRowView(contact: "Arsenii Tkachenko", lastOnline: "2 hours ago")
-                    
-                }
-            }
-            .padding(.leading)
-            .navigationTitle("Contacts")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem (placement: ToolbarItemPlacement.navigationBarLeading) {
-                    Menu {
-                        Button {} label: {
-                            Text("by Last Seen")
-                        }
-                        Button {} label: {
-                            Text("by Name")
-                        }
-                    } label: {
-                        Text("Sort")
-                    }
-                }
-                ToolbarItem (placement: ToolbarItemPlacement.navigationBarTrailing) {
-                    Button {
-                        showAddContact = true
-                    } label: {
-                        Image(systemName: "plus")
-                    }
-                    .popover(isPresented: $showAddContact) {
-                        AddContactView()
-                    }
-                }
+        ScrollView {
+            ForEach(0...15, id: \.self) { contact in
+                ContactRowView(contact: "Arsenii Tkachenko", lastOnline: "2 hours ago")
                 
             }
-            
         }
+        .padding(.leading)
     }
 }
+
 
 struct ContactsView_Previews: PreviewProvider {
     static var previews: some View {
