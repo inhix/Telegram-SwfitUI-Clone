@@ -20,152 +20,76 @@ struct ProfileView: View {
         self.lastSeen = lastSeen
     }
     
+    private func adaptiveItemGrid (width: CGFloat) -> GridItem {
+        var gridItem = GridItem(.adaptive(minimum: width))
+        gridItem.spacing = 0
+        return gridItem
+    }
+    
     var body: some View {
-            VStack{
-                ZStack (alignment: .bottomLeading) {
-                    Image("profilePic")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                    VStack (alignment: .leading){
-                        Text(contact)
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                        Text("last seen " + lastSeen)
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
-                    }
-                    .padding()
-                    .foregroundColor(.white)
-                    
-                    
+        VStack{
+            ZStack (alignment: .bottomLeading) {
+                Image("profilePic")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                VStack (alignment: .leading){
+                    Text(contact)
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                    Text("last seen " + lastSeen)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
                 }
-                
-                HStack(spacing: 8) {
-                    Button {
-                    } label: {
-                        VStack{
-                            Image(systemName: "phone.fill")
-                                .font(.title2)
-                                .frame(width: 40, height: 40)
-                            Text("call")
-                                .font(.caption)
-                                .fontWeight(.thin)
-                        }
-                        .padding()
-                        .background()
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
-                        
-                        
-                    }
-                    
-                    Button {
-                    } label: {
-                        VStack{
-                            Image(systemName: "video.fill")
-                                .font(.title2)
-                                .frame(width: 40, height: 40)
-                            Text("video")
-                                .font(.caption)
-                                .fontWeight(.thin)
-                            
-                        }
-                        .padding()
-                        .background()
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
-                    }
-                    
-                    Button {
-                    } label: {
-                        VStack{
-                            Image(systemName: "bell.fill")
-                                .font(.title2)
-                                .frame(width: 40, height: 40)
-                            Text("mute")
-                                .font(.caption)
-                                .fontWeight(.thin)
-                            
-                        }
-                        .padding()
-                        .background()
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
-                        
-                    }
-                    
-                    Button {
-                    } label: {
-                        VStack{
-                            Image(systemName: "magnifyingglass")
-                                .font(.title2)
-                                .frame(width: 40, height: 40)
-                            Text("search")
-                                .font(.caption)
-                                .fontWeight(.thin)
-                            
-                        }
-                        .padding()
-                        .background()
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
-                        
-                        
-                    }
-                    
-                    Button {
-                    } label: {
-                        VStack{
-                            Image(systemName: "ellipsis")
-                                .font(.title2)
-                                .frame(width: 40, height: 40)
-                            
-                            Text("more")
-                                .font(.caption)
-                                .fontWeight(.thin)
-                            
-                        }
-                        .padding()
-                        .background()
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
-                        
-                    }
-                }
-                
+                .padding()
+                .foregroundColor(.white)
+            }
+            
+            HStack (spacing: 8) {
+                actionButton(imageName: "phone.fill", label: "call")
+                actionButton(imageName: "video.fill", label: "video")
+                actionButton(imageName: "bell.fill", label: "mute")
+                actionButton(imageName: "magnifyingglass", label: "search")
+                actionButton(imageName: "ellipsis", label: "more")
+            }
+            
+            VStack (alignment: .leading) {
                 VStack (alignment: .leading) {
-                    VStack (alignment: .leading) {
-                        Text("mobile")
-                            .font(.subheadline)
-                        Text("+380 98 069 9498")
-                            .foregroundColor(.blue)
-                    }
-                    Divider()
-                    HStack {
+                    Text("mobile")
+                        .font(.subheadline)
+                    Text("+380 98 069 9498")
+                        .foregroundColor(.blue)
+                }
+                Divider()
+                HStack {
                     VStack (alignment: .leading) {
                         Text("username")
                             .font(.subheadline)
                         Text("@inhix")
                             .foregroundColor(.blue)
                     }
-                        Spacer()
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "qrcode")
-                                .font(.title2)
-                        }
+                    Spacer()
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "qrcode")
+                            .font(.title2)
                     }
                 }
-                .padding()
-                .background(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 15))
-                .padding()
-                
-                mediaFilterBar
-                    .padding(.top)
-                    .background(.white)
-                
-                Spacer()
             }
-            .background(Color(red: (239/255), green: (238/255), blue: (243/255)))
-            .ignoresSafeArea()
+            .padding()
+            .background(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 15))
+            .padding()
+            
+            mediaFilterBar
+                .padding(.top)
+                .background(.white)
+            
+            Spacer()
+        }
+        .background(Color(red: (239/255), green: (238/255), blue: (243/255)))
+        .ignoresSafeArea()
     }
     var mediaFilterBar: some View {
         HStack {
@@ -194,6 +118,23 @@ struct ProfileView: View {
         }
         .overlay(Divider().offset(x: 0, y: 16))
         .padding(.horizontal)
+    }
+    
+    private func actionButton (imageName: String, label: String) -> some View {
+        Button {
+        } label: {
+            VStack{
+                Image(systemName: imageName)
+                    .font(.title2)
+                    .frame(width: 40, height: 40)
+                Text(label)
+                    .font(.caption)
+                    .fontWeight(.thin)
+            }
+            .padding()
+            .background()
+            .clipShape(RoundedRectangle(cornerRadius: 15))
+        }
     }
 }
 
