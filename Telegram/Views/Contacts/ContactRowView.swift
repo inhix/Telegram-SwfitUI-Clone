@@ -13,9 +13,10 @@ struct ContactRowView: View {
     private var lastOnline: String
     var body: some View {
         HStack {
-            Circle()
+            Image("profilePic")
+                .resizable()
+                .clipShape(Circle())
                 .frame(width: 56, height: 56)
-                .foregroundColor(.blue)
             VStack (alignment: .leading) {
                 Text(contact)
                 Text("last seen " + lastOnline)

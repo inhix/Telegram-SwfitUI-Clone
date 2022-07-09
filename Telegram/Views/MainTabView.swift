@@ -93,7 +93,13 @@ struct MainTabView: View {
                     } label: {
                         Text("Edit")
                     }
-                    case .settings, .calls: EmptyView()
+                    case .calls: Button {
+                        
+                    } label: {
+                        Text("Edit")
+                    }
+                        
+                    case .settings: EmptyView()
                     }
                     
                     
@@ -115,7 +121,12 @@ struct MainTabView: View {
                         } label: {
                             Image(systemName: "square.and.pencil")
                         }
-                    case .settings, .calls: EmptyView()
+                    case .calls: NavigationLink {
+                        
+                    } label: {
+                        Image(systemName: "phone.badge.plus")
+                    }
+                    case .settings: EmptyView()
                     }
                 }
             }

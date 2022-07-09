@@ -15,12 +15,12 @@ struct ChatRowView: View {
     
     var body: some View {
         HStack {
-            Circle()
-                .frame(width: 56, height: 56)
-                .foregroundColor(.blue)
+            Image("profilePic")
+                .resizable()
+                .clipShape(Circle())
+                .frame(width: 56.0, height: 56.0)
+            
             HStack {
-                
-                
                 VStack (alignment: .leading) {
                     HStack {
                         VStack(alignment: .leading) {
@@ -33,7 +33,7 @@ struct ChatRowView: View {
                                 .fontWeight(.light)
                                 .lineLimit(2)
                                 .multilineTextAlignment(.leading)
-                                
+                            
                         }
                         Spacer()
                         VStack {
@@ -43,12 +43,12 @@ struct ChatRowView: View {
                                 .fontWeight(.light)
                                 .padding(.trailing)
                             
-                        Text("2")
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 4)
-                            .background(.blue)
-                            .foregroundColor(.white)
-                            .clipShape(Circle())
+                            Text("2")
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 4)
+                                .background(.blue)
+                                .foregroundColor(.white)
+                                .clipShape(Circle())
                         }
                     }
                     Divider()

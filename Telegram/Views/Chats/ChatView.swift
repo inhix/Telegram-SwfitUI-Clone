@@ -11,6 +11,7 @@ struct ChatView: View {
     
     private var contact: String
     
+    @State private var showProfilePopover = false
     @State private var messageText = ""
     
     @Environment(\.presentationMode) var presentationMode
@@ -23,6 +24,19 @@ struct ChatView: View {
                     .padding(.vertical)
             }
             messageField
+        }
+        .navigationTitle(contact)
+        .toolbar {
+            ToolbarItem (placement: ToolbarItemPlacement.navigationBarTrailing) {
+                NavigationLink {
+                    ProfileView(contact: "Arsenii Tkachenko", lastSeen: "two hours ago")
+                } label: {
+                    Image("profilePic")
+                        .resizable()
+                        .clipShape(Circle())
+                        .frame(width: 36, height: 36)
+                }
+            }
         }
     }
     
@@ -63,7 +77,7 @@ struct ChatView: View {
                 .padding(4)
                 .padding(.horizontal, 10)
                 .overlay(Capsule().stroke(Color.gray, lineWidth: 1))
-
+            
             
             Button {
                 
@@ -71,7 +85,7 @@ struct ChatView: View {
                 Image(systemName: "mic")
                     .foregroundColor(.gray)
                     .frame(width: 36, height: 36)
-
+                
             }
         }
     }
