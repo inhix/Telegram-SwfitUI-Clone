@@ -28,22 +28,7 @@ struct ProfileView: View {
     
     var body: some View {
         VStack{
-            ZStack (alignment: .bottomLeading) {
-                Image("profilePic")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                VStack (alignment: .leading){
-                    Text(contact)
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                    Text("last seen " + lastSeen)
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                }
-                .padding()
-                .foregroundColor(.white)
-            }
+            headerInfo
             
             HStack (spacing: 8) {
                 actionButton(imageName: "phone.fill", label: "call")
@@ -53,34 +38,7 @@ struct ProfileView: View {
                 actionButton(imageName: "ellipsis", label: "more")
             }
             
-            VStack (alignment: .leading) {
-                VStack (alignment: .leading) {
-                    Text("mobile")
-                        .font(.subheadline)
-                    Text("+380 98 069 9498")
-                        .foregroundColor(.blue)
-                }
-                Divider()
-                HStack {
-                    VStack (alignment: .leading) {
-                        Text("username")
-                            .font(.subheadline)
-                        Text("@inhix")
-                            .foregroundColor(.blue)
-                    }
-                    Spacer()
-                    Button {
-                        
-                    } label: {
-                        Image(systemName: "qrcode")
-                            .font(.title2)
-                    }
-                }
-            }
-            .padding()
-            .background(.white)
-            .clipShape(RoundedRectangle(cornerRadius: 15))
-            .padding()
+            userInfo
             
             mediaFilterBar
                 .padding(.top)
@@ -91,6 +49,57 @@ struct ProfileView: View {
         .background(Color(red: (239/255), green: (238/255), blue: (243/255)))
         .ignoresSafeArea()
     }
+    
+    var headerInfo: some View {
+        ZStack (alignment: .bottomLeading) {
+            Image("profilePic")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+            VStack (alignment: .leading){
+                Text(contact)
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white)
+                Text("last seen " + lastSeen)
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+            }
+            .padding()
+            .foregroundColor(.white)
+        }
+    }
+    
+    var userInfo: some View {
+        VStack (alignment: .leading) {
+            VStack (alignment: .leading) {
+                Text("mobile")
+                    .font(.subheadline)
+                Text("+380 98 069 9498")
+                    .foregroundColor(.blue)
+            }
+            Divider()
+            HStack {
+                VStack (alignment: .leading) {
+                    Text("username")
+                        .font(.subheadline)
+                    Text("@inhix")
+                        .foregroundColor(.blue)
+                }
+                Spacer()
+                Button {
+                    
+                } label: {
+                    Image(systemName: "qrcode")
+                        .font(.title2)
+                }
+            }
+        }
+        .padding()
+        .background(.white)
+        .clipShape(RoundedRectangle(cornerRadius: 15))
+        .padding()
+    }
+    
     var mediaFilterBar: some View {
         HStack {
             ForEach(ChatMediaFilterViewModel.allCases, id: \.rawValue) { item in
