@@ -31,9 +31,7 @@ struct ChatView: View {
                 NavigationLink {
                     ProfileView(contact: "Arsenii Tkachenko", lastSeen: "two hours ago")
                 } label: {
-                    Image("profilePic")
-                        .resizable()
-                        .clipShape(Circle())
+                    RoundedProfilePic("profilePic")
                         .frame(width: 36, height: 36)
                 }
             }

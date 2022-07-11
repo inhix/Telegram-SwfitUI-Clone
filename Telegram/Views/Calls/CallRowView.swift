@@ -45,9 +45,7 @@ struct CallRowView: View {
                         .foregroundColor(.clear)
                         .frame(width: 20, height: 20)
                 }
-                Image("profilePic")
-                    .resizable()
-                    .clipShape(Circle())
+                RoundedProfilePic("profilePic")
                     .frame(width: 56, height: 56)
                 VStack (alignment: .leading) {
                     Text(contact)

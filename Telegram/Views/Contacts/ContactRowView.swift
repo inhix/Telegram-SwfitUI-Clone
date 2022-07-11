@@ -13,9 +13,7 @@ struct ContactRowView: View {
     private var lastOnline: String
     var body: some View {
         HStack {
-            Image("profilePic")
-                .resizable()
-                .clipShape(Circle())
+            RoundedProfilePic("profilePic")
                 .frame(width: 56, height: 56)
             VStack (alignment: .leading) {
                 Text(contact)

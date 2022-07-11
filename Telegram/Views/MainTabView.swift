@@ -33,7 +33,6 @@ struct MainTabView: View {
                 ContactsView()
                     .onTapGesture {
                         self.selectedTab = .contacts
-                        
                     }
                     .tabItem {
                         tabLabel(imageName: "person.crop.circle.fill", label: Tabs.contacts.navTabTitle)

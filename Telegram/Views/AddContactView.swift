@@ -23,9 +23,7 @@ struct AddContactView: View {
                     Form {
                         VStack (alignment: .leading) {
                             HStack {
-                                Image("profilePic")
-                                    .resizable()
-                                    .clipShape(Circle())
+                                RoundedProfilePic("profilePic")
                                     .frame(width: 64, height: 64)
                                 VStack {
                                     TextField(text: $firstName, prompt: Text("FirstName")) {

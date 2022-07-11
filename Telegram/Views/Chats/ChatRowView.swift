@@ -15,9 +15,7 @@ struct ChatRowView: View {
     
     var body: some View {
         HStack {
-            Image("profilePic")
-                .resizable()
-                .clipShape(Circle())
+            RoundedProfilePic("profilePic")
                 .frame(width: 56.0, height: 56.0)
             
             HStack {
