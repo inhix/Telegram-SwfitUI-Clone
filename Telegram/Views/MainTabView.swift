@@ -36,8 +36,7 @@ struct MainTabView: View {
                         
                     }
                     .tabItem {
-                        Image(systemName: "person.crop.circle.fill")
-                        Text("Contacts")
+                        tabLabel(imageName: "person.crop.circle.fill", label: Tabs.contacts.navTabTitle)
                     }
                     .tag(Tabs.contacts)
                 
@@ -46,8 +45,7 @@ struct MainTabView: View {
                         self.selectedTab = .calls
                     }
                     .tabItem {
-                        Image(systemName: "phone.fill")
-                        Text("Calls")
+                        tabLabel(imageName: "phone.fill", label: Tabs.calls.navTabTitle)
                     }
                     .tag(Tabs.calls)
                 
@@ -56,8 +54,7 @@ struct MainTabView: View {
                         self.selectedTab = .chats
                     }
                     .tabItem {
-                        Image(systemName: "bubble.left.and.bubble.right.fill")
-                        Text("Chats")
+                        tabLabel(imageName: "bubble.left.and.bubble.right.fill", label: Tabs.chats.navTabTitle)
                     }
                     .tag(Tabs.chats)
                 
@@ -66,8 +63,7 @@ struct MainTabView: View {
                         self.selectedTab = .settings
                     }
                     .tabItem {
-                        Image(systemName: "gear")
-                        Text("Settings")
+                        tabLabel(imageName: "gear", label: Tabs.settings.navTabTitle)
                     }
                     .tag(Tabs.settings)
             }
@@ -77,59 +73,85 @@ struct MainTabView: View {
                 ToolbarItem (placement: ToolbarItemPlacement.navigationBarLeading) {
                     
                     switch selectedTab {
-                    case .contacts:
-                        Menu {
-                            Button {} label: {
-                                Text("by Last Seen")
-                            }
-                            Button {} label: {
-                                Text("by Name")
-                            }
-                        } label: {
-                            Text("Sort")
-                        }
-                    case .chats: Button {
-                        
-                    } label: {
-                        Text("Edit")
-                    }
-                    case .calls: Button {
-                        
-                    } label: {
-                        Text("Edit")
-                    }
-                        
+                    case .contacts: contactsSortButton
+                    case .chats: chatsEditButton
+                    case .calls: callsEditButton
                     case .settings: EmptyView()
                     }
-                    
-                    
                 }
                 ToolbarItem (placement: ToolbarItemPlacement.navigationBarTrailing) {
                     switch selectedTab {
-                    case .contacts:
-                        Button {
-                            showAddContact = true
-                        } label: {
-                            Image(systemName: "plus")
-                        }
-                        .popover(isPresented: $showAddContact) {
-                            AddContactView()
-                        }
-                    case .chats:
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "square.and.pencil")
-                        }
-                    case .calls: NavigationLink {
-                        
-                    } label: {
-                        Image(systemName: "phone.badge.plus")
-                    }
-                    case .settings: EmptyView()
+                    case .contacts: addContactsButton
+                    case .chats: chatsNewMessageButton
+                    case .calls: newCallButton
+                    case .settings:
+                        EmptyView()
                     }
                 }
             }
+        }
+    }
+    
+    private func tabLabel (imageName: String, label: String) -> some View {
+        VStack {
+            Image(systemName: imageName)
+            Text(label)
+        }
+    }
+    
+    var contactsSortButton: some View {
+        Menu {
+            Button {} label: {
+                Text("by Last Seen")
+            }
+            Button {} label: {
+                Text("by Name")
+            }
+        } label: {
+            Text("Sort")
+        }
+    }
+    
+    var addContactsButton: some View {
+        Button {
+            showAddContact = true
+        } label: {
+            Image(systemName: "plus")
+        }
+        .popover(isPresented: $showAddContact) {
+            AddContactView()
+        }
+    }
+    
+    var chatsEditButton: some View {
+        Button {
+            
+        } label: {
+            Text("Edit")
+        }
+    }
+    
+    var chatsNewMessageButton: some View {
+        Button {
+            
+        } label: {
+            Image(systemName: "square.and.pencil")
+        }
+    }
+    
+    var callsEditButton: some View {
+        Button {
+            
+        } label: {
+            Text("Edit")
+        }
+    }
+    
+    var newCallButton: some View {
+        NavigationLink {
+            
+        } label: {
+            Image(systemName: "phone.badge.plus")
         }
     }
 }
