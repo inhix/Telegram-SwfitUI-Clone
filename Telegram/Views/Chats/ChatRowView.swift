@@ -13,6 +13,12 @@ struct ChatRowView: View {
     private var lastMessage: String
     private var lastMessageSent: String
     
+    init (contact: String, lastMessage: String, lastMessageSent: String) {
+        self.contact = contact
+        self.lastMessage = lastMessage
+        self.lastMessageSent = lastMessageSent
+    }
+    
     var body: some View {
         HStack {
             RoundedProfilePic("profilePic")
@@ -34,20 +40,7 @@ struct ChatRowView: View {
                             
                         }
                         Spacer()
-                        VStack {
-                            Text(lastMessageSent)
-                                .foregroundColor(.gray)
-                                .font(.subheadline)
-                                .fontWeight(.light)
-                                .padding(.trailing)
-                            
-                            Text("2")
-                                .padding(.horizontal, 16)
-                                .padding(.vertical, 4)
-                                .background(.blue)
-                                .foregroundColor(.white)
-                                .clipShape(Circle())
-                        }
+                        unreadMessagesCounter(2)
                     }
                     Divider()
                         .background(Color(.darkGray))
@@ -57,10 +50,21 @@ struct ChatRowView: View {
         }
     }
     
-    init (contact: String, lastMessage: String, lastMessageSent: String) {
-        self.contact = contact
-        self.lastMessage = lastMessage
-        self.lastMessageSent = lastMessageSent
+    func unreadMessagesCounter(_ counter: Int) -> some View {
+        VStack {
+            Text(lastMessageSent)
+                .foregroundColor(.gray)
+                .font(.subheadline)
+                .fontWeight(.light)
+                .padding(.trailing)
+            
+            Text(String(counter))
+                .padding(.horizontal, 16)
+                .padding(.vertical, 4)
+                .background(.blue)
+                .foregroundColor(.white)
+                .clipShape(Circle())
+        }
     }
     
 }

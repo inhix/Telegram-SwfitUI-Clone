@@ -24,7 +24,7 @@ enum Tabs: String {
 }
 
 struct MainTabView: View {
-    @State private var selectedTab: Tabs = .chats
+    @State private var selectedTab: Tabs = .settings
     @State private var showAddContact = false
     
     var body: some View {
@@ -75,7 +75,7 @@ struct MainTabView: View {
                     case .contacts: contactsSortButton
                     case .chats: chatsEditButton
                     case .calls: callsEditButton
-                    case .settings: EmptyView()
+                    case .settings: settingsEditButton
                     }
                 }
                 ToolbarItem (placement: ToolbarItemPlacement.navigationBarTrailing) {
@@ -83,8 +83,7 @@ struct MainTabView: View {
                     case .contacts: addContactsButton
                     case .chats: chatsNewMessageButton
                     case .calls: newCallButton
-                    case .settings:
-                        EmptyView()
+                    case .settings: settingsQrButton
                     }
                 }
             }
@@ -95,6 +94,19 @@ struct MainTabView: View {
         VStack {
             Image(systemName: imageName)
             Text(label)
+        }
+    }
+    
+    var settingsEditButton: some View {
+        Button {
+        } label: {
+            Image(systemName: "qrcode")
+        }
+    }
+    
+    var settingsQrButton: some View {
+        Button {} label: {
+            Text("Edit")
         }
     }
     

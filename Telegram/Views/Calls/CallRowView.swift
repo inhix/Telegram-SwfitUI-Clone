@@ -61,9 +61,13 @@ struct CallRowView: View {
                         .fontWeight(.light)
                         .foregroundColor(.gray)
                         .padding(4)
-                    Image(systemName: "info.circle")
-                        .foregroundColor(.blue)
-                        .padding(4)
+                    Button {
+                    } label: {
+                        Image(systemName: "info.circle")
+                            .foregroundColor(.blue)
+                            
+                    }
+                    .padding(4)
                 }
             }
             Divider()

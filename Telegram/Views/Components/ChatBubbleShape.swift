@@ -105,18 +105,18 @@ struct Demo: View {
             VStack {
                 ChatBubble(direction: .left) {
                     Text("Hello!")
-                        .padding(.all, 20)
+                        .padding(.all, 16)
                         .foregroundColor(Color.white)
                         .background(Color.blue)
                 }
                 ChatBubble(direction: .right) {
                     Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ut semper quam. Phasellus non mauris sem. Donec sed fermentum eros. Donec pretium nec turpis a semper. ")
-                        .padding(.all, 20)
+                        .padding(.all, 16)
                         .foregroundColor(Color.white)
                         .background(Color.blue)
                 }
                 ChatBubble(direction: .right) {
-                    Image.init("dummyImage")
+                    Image.init("profilePic")
                         .resizable()
                         .frame(width: UIScreen.main.bounds.width - 70,
                                height: 200).aspectRatio(contentMode: .fit)

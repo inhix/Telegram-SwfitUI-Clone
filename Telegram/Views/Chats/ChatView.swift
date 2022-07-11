@@ -47,13 +47,13 @@ struct ChatView: View {
             ForEach(0...4, id: \.self) { _ in
                 ChatBubble(direction: .left) {
                     Text("Hello!")
-                        .padding(.all, 20)
+                        .padding(.all, 16)
                         .foregroundColor(Color.white)
                         .background(Color.blue)
                 }
                 ChatBubble(direction: .right) {
                     Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ut semper quam. Phasellus non mauris sem. Donec sed fermentum eros. Donec pretium nec turpis a semper. ")
-                        .padding(.all, 20)
+                        .padding(.all, 16)
                         .foregroundColor(Color.white)
                         .background(Color.blue)
                 }
