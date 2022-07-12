@@ -26,6 +26,7 @@
 		C090BBF92879D4590067BB44 /* ChatMediaFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090BBF82879D4580067BB44 /* ChatMediaFilterViewModel.swift */; };
 		C090BBFC2879FD310067BB44 /* CallRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090BBFB2879FD310067BB44 /* CallRowView.swift */; };
 		C090BBFE287C118E0067BB44 /* RoundedProfilePic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090BBFD287C118D0067BB44 /* RoundedProfilePic.swift */; };
+		C090BC02287D6C1F0067BB44 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C090BC01287D6C1F0067BB44 /* ProfileEditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		C090BBF82879D4580067BB44 /* ChatMediaFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMediaFilterViewModel.swift; sourceTree = "<group>"; };
 		C090BBFB2879FD310067BB44 /* CallRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallRowView.swift; sourceTree = "<group>"; };
 		C090BBFD287C118D0067BB44 /* RoundedProfilePic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedProfilePic.swift; sourceTree = "<group>"; };
+		C090BC01287D6C1F0067BB44 /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +131,7 @@
 				C090BBE8287851BF0067BB44 /* Chats */,
 				C090BBE72878519A0067BB44 /* Contacts */,
 				C090BBD328774C660067BB44 /* MainTabView.swift */,
-				C090BBE128774F540067BB44 /* SettingsView.swift */,
-				C090BBE52877697A0067BB44 /* AddContactView.swift */,
+				C090BC00287D6BF00067BB44 /* Settings */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -148,6 +149,7 @@
 			children = (
 				C090BBD528774D370067BB44 /* ContactsView.swift */,
 				C090BBE3287754450067BB44 /* ContactRowView.swift */,
+				C090BBE52877697A0067BB44 /* AddContactView.swift */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -187,6 +189,15 @@
 				C090BBFB2879FD310067BB44 /* CallRowView.swift */,
 			);
 			path = Calls;
+			sourceTree = "<group>";
+		};
+		C090BC00287D6BF00067BB44 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C090BBE128774F540067BB44 /* SettingsView.swift */,
+				C090BC01287D6C1F0067BB44 /* ProfileEditView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		FA1BD062C8E2751F8C0B6A78 /* Frameworks */ = {
@@ -293,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C090BC02287D6C1F0067BB44 /* ProfileEditView.swift in Sources */,
 				C090BBFE287C118E0067BB44 /* RoundedProfilePic.swift in Sources */,
 				C090BBE228774F540067BB44 /* SettingsView.swift in Sources */,
 				C090BBF62879B6EC0067BB44 /* ProfileView.swift in Sources */,

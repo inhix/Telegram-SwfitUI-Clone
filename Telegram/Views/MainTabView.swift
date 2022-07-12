@@ -75,7 +75,7 @@ struct MainTabView: View {
                     case .contacts: contactsSortButton
                     case .chats: chatsEditButton
                     case .calls: callsEditButton
-                    case .settings: settingsEditButton
+                    case .settings: settingsQrButton
                     }
                 }
                 ToolbarItem (placement: ToolbarItemPlacement.navigationBarTrailing) {
@@ -83,7 +83,7 @@ struct MainTabView: View {
                     case .contacts: addContactsButton
                     case .chats: chatsNewMessageButton
                     case .calls: newCallButton
-                    case .settings: settingsQrButton
+                    case .settings: settingsEditButton
                     }
                 }
             }
@@ -98,15 +98,18 @@ struct MainTabView: View {
     }
     
     var settingsEditButton: some View {
-        Button {
+        NavigationLink {
+            
+            ProfileEditView()
         } label: {
-            Image(systemName: "qrcode")
+            Text("Edit")
         }
     }
     
+    
     var settingsQrButton: some View {
         Button {} label: {
-            Text("Edit")
+            Image(systemName: "qrcode")
         }
     }
     
